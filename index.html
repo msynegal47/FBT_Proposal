@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Balance Today - Content Strategy Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --blush: #E8C4B8;
+    --blush-light: #F2DDD6;
+    --blush-dark: #C9967F;
+    --navy: #1C2B3A;
+    --navy-light: #2E4057;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --charcoal: #3A3530;
+    --warm-gray: #8A8078;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,169,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(232,196,184,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: clamp(64px, 10vw, 120px);
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush-light);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    max-width: 520px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1.2s;
+  }
+
+  .hero-scroll span {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 100px 0;
+  }
+
+  .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* EYEBROW + HEADERS */
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--blush-dark);
+  }
+
+  .section-body {
+    font-size: 16px;
+    color: var(--warm-gray);
+    max-width: 600px;
+    line-height: 1.9;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blush-dark), var(--gold));
+    margin: 32px 0;
+  }
+
+  /* INTRO SECTION */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  .intro-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+
+  .intro-statement em {
+    font-style: italic;
+    color: var(--blush-dark);
+  }
+
+  /* DARK BAND */
+  .dark-band {
+    background: var(--navy);
+    padding: 100px 40px;
+  }
+
+  .dark-band .section-title {
+    color: var(--white);
+  }
+
+  .dark-band .section-body {
+    color: rgba(255,255,255,0.55);
+  }
+
+  .dark-band .eyebrow {
+    color: var(--gold);
+  }
+
+  /* PILLARS */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .pillar-card:nth-child(1)::before { background: var(--blush-dark); }
+  .pillar-card:nth-child(2)::before { background: var(--gold); }
+  .pillar-card:nth-child(3)::before { background: var(--navy); }
+
+  .pillar-percent {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .pillar-card:nth-child(1) .pillar-percent { color: var(--blush-dark); }
+  .pillar-card:nth-child(2) .pillar-percent { color: var(--gold); }
+  .pillar-card:nth-child(3) .pillar-percent { color: var(--navy); }
+
+  .pillar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .pillar-desc {
+    font-size: 14px;
+    color: var(--warm-gray);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+
+  .pillar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: var(--cream);
+    color: var(--charcoal);
+  }
+
+  /* AVATARS */
+  .avatars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .avatar-card {
+    background: var(--cream);
+    border: 1px solid var(--gold-light);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .avatar-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blush-dark), var(--gold));
+  }
+
+  .avatar-initial {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--blush-light);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .avatar-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .avatar-type {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .avatar-desc {
+    font-size: 14px;
+    color: var(--warm-gray);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .avatar-pain {
+    background: var(--white);
+    padding: 20px 24px;
+    border-left: 2px solid var(--blush-dark);
+  }
+
+  .avatar-pain-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush-dark);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .avatar-pain p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* TONE SECTION */
+  .tone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 60px;
+  }
+
+  .tone-col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .tone-list {
+    list-style: none;
+  }
+
+  .tone-list li {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .tone-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .tone-list.yes li::before { background: var(--gold); }
+  .tone-list.no li::before { background: rgba(255,255,255,0.2); }
+  .tone-list.no li { text-decoration: none; opacity: 0.5; }
+
+  /* SERIES FEATURE */
+  .series-feature {
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    padding: 60px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .series-feature::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 300px;
+    color: var(--blush-light);
+    position: absolute;
+    top: -60px;
+    right: 40px;
+    line-height: 1;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .series-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .series-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .series-body {
+    font-size: 15px;
+    color: var(--warm-gray);
+    max-width: 560px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  .series-example {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .series-voice {
+    background: var(--cream);
+    padding: 28px 32px;
+  }
+
+  .series-voice-name {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush-dark);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .series-voice p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+
+  /* SYSTEM / WORKFLOW */
+  .workflow-steps {
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .workflow-steps::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold), var(--blush-dark), transparent);
+  }
+
+  .workflow-step {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 48px;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--gold);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--warm-gray);
+    line-height: 1.8;
+  }
+
+  /* CADENCE */
+  .cadence-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .cadence-card {
+    background: var(--white);
+    padding: 36px 28px;
+    text-align: center;
+  }
+
+  .cadence-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .cadence-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .cadence-desc {
+    font-size: 13px;
+    color: var(--blush-dark);
+    line-height: 1.6;
+  }
+
+  /* DELIVERABLES */
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .deliverable-group h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gold-light);
+  }
+
+  .deliverable-list {
+    list-style: none;
+  }
+
+  .deliverable-list li {
+    font-size: 14px;
+    color: var(--warm-gray);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .deliverable-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* SUCCESS */
+  .success-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .success-card {
+    padding: 48px 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .success-card:first-child {
+    background: rgba(255,255,255,0.04);
+  }
+
+  .success-card:last-child {
+    background: rgba(201,169,110,0.06);
+    border-color: rgba(201,169,110,0.2);
+  }
+
+  .success-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .success-list {
+    list-style: none;
+  }
+
+  .success-list li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .success-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  /* INVESTMENT */
+  .investment-card {
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    padding: 80px 60px;
+    margin-top: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .investment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blush-dark), var(--gold), var(--blush-dark));
+  }
+
+  .investment-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(72px, 10vw, 120px);
+    font-weight: 300;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .investment-period {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin-bottom: 40px;
+    display: block;
+  }
+
+  .investment-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  .investment-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--warm-gray);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .investment-commitment {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--cream);
+    padding: 16px 32px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .investment-commitment::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--navy);
+    padding: 120px 40px;
+    text-align: center;
+  }
+
+  .closing-script {
+    font-family: 'Pinyon Script', cursive;
+    font-size: clamp(48px, 8vw, 96px);
+    color: var(--white);
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+
+  .closing-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(255,255,255,0.45);
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .closing-mark {
+    margin-top: 60px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .pillars-grid,
+    .avatars-grid,
+    .tone-grid,
+    .series-example,
+    .deliverables-grid,
+    .success-grid,
+    .cadence-grid,
+    .intro-grid { grid-template-columns: 1fr; }
+    .series-feature { padding: 40px 32px; }
+    .investment-card { padding: 60px 32px; }
+    .workflow-steps::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Content Strategy Proposal - 2026</p>
+  <h1 class="hero-script">Financial Balance.</h1>
+  <p class="hero-title">Today - A Content Partnership</p>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">A content plan built around who you are - and how you show up together.</p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section" id="intro">
+  <span class="eyebrow">Where We Start</span>
+  <h2 class="section-title">You already have<br><em>everything.</em></h2>
+  <div class="divider"></div>
+  <div class="intro-grid">
+    <div>
+      <p class="intro-statement">Most advisors who struggle online aren't struggling because they have nothing to say. <em>They struggle because life gets busy, and showing up consistently is hard when you're also running a practice and serving clients.</em></p>
+    </div>
+    <div>
+      <p class="section-body">What makes this different is you two together. The experience and depth Nichole brings combined with Jalyn's energy and relatability - that contrast is genuinely rare, and it's the kind of thing people stick around to watch.</p>
+      <br>
+      <p class="section-body">The goal isn't to turn you into content creators. It's to let the right people - the ones already in your world - feel like they really know you. That's what makes referrals happen naturally. That's what builds trust before anyone ever books a call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<div class="section-full section" id="pillars">
+  <div class="section-inner">
+    <span class="eyebrow">Content Pillars</span>
+    <h2 class="section-title">Three pillars.<br><em>One clear voice.</em></h2>
+    <div class="divider"></div>
+    <p class="section-body">Every piece of content lives inside one of three pillars. The ratio keeps the feed feeling balanced - personal first, educational second, brand third.</p>
+  </div>
+  <div class="pillars-grid" style="margin-top: 60px; padding: 0 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+    <div class="pillar-card">
+      <span class="pillar-percent">40%</span>
+      <p class="pillar-name">Life in Balance</p>
+      <p class="pillar-desc">The human side of Nichole and Jalyn. This is what builds familiarity before anyone ever books a call. San Diego lifestyle, client events, behind-the-scenes moments, personal values.</p>
+      <div class="pillar-tags">
+        <span class="tag">Day in the life</span>
+        <span class="tag">Client events</span>
+        <span class="tag">San Diego</span>
+        <span class="tag">Personal values</span>
+        <span class="tag">Behind the scenes</span>
+      </div>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-percent">40%</span>
+      <p class="pillar-name">The Founder Lens</p>
+      <p class="pillar-desc">Speaking directly to business owners and high-earning professionals without ever making it feel like a pitch. The emotional side of wealth, succession, retirement identity, planning complexity.</p>
+      <div class="pillar-tags">
+        <span class="tag">Business owners</span>
+        <span class="tag">RSUs & stock options</span>
+        <span class="tag">Succession planning</span>
+        <span class="tag">Early retirement</span>
+        <span class="tag">Wealth psychology</span>
+      </div>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-percent">20%</span>
+      <p class="pillar-name">WestPac & Credibility</p>
+      <p class="pillar-desc">Not selling. Establishing. The experience and depth behind this practice surfaces naturally - not as a pitch, but as context. Philosophy, client appreciation, milestone moments.</p>
+      <div class="pillar-tags">
+        <span class="tag">Practice philosophy</span>
+        <span class="tag">Client appreciation</span>
+        <span class="tag">Milestones</span>
+        <span class="tag">Brand context</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AVATARS -->
+<section class="section" id="avatars">
+  <span class="eyebrow">Who We're Speaking To</span>
+  <h2 class="section-title">They don't need to be<br><em>educated.</em> They need<br>to feel understood.</h2>
+  <div class="divider"></div>
+  <p class="section-body">Every piece of content is written with one of two people in mind. Not demographics - real people with real situations.</p>
+  <div class="avatars-grid">
+    <div class="avatar-card">
+      <span class="avatar-initial">J</span>
+      <h3 class="avatar-name">Jenny & John</h3>
+      <span class="avatar-type">High Income Earner - Executive Household</span>
+      <p class="avatar-desc">$800K combined income. $2M+ in investments. John handles the accounts but knows he's not an expert anymore. Jenny sees the monthly outflow and quietly worries. They want early retirement at 60 but they're too busy to figure out if it's actually possible.</p>
+      <div class="avatar-pain">
+        <span class="avatar-pain-label">The real tension</span>
+        <p>"We're successful. So why doesn't this feel figured out?"</p>
+      </div>
+    </div>
+    <div class="avatar-card">
+      <span class="avatar-initial">M</span>
+      <h3 class="avatar-name">Mark & Meredith</h3>
+      <span class="avatar-type">Business Owners - Built It From Scratch</span>
+      <p class="avatar-desc">30 years in construction. 15 employees who feel like family. Their wealth is almost entirely illiquid - the business, the property, the home equity. Meredith was ready to retire last year. Mark's identity is the business. Neither has a real plan.</p>
+      <div class="avatar-pain">
+        <span class="avatar-pain-label">The real tension</span>
+        <p>"We built something real. Now what do we do with it?"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TONE -->
+<div class="dark-band section" id="tone">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <span class="eyebrow">Tone & Brand Direction</span>
+    <h2 class="section-title">Warm authority.<br><em>Not a finance influencer.</em></h2>
+    <div class="divider" style="background: linear-gradient(90deg, var(--blush-dark), var(--gold));"></div>
+    <p class="section-body">The brand that's already emerging from @financialbalance.today is the right instinct - warm, feminine, elevated. We're building on that with more intention and consistency.</p>
+    <div class="tone-grid">
+      <div>
+        <p class="tone-col-title">How it sounds and feels.</p>
+        <ul class="tone-list yes">
+          <li>Conversational - knowledgeable without being heavy</li>
+          <li>Warm and elevated - San Diego professional energy, not corporate</li>
+          <li>Calm and confident - people trust what doesn't feel rushed</li>
+          <li>Relationship-forward - every post feels like a conversation worth having</li>
+          <li>Two voices - the contrast between you is the content</li>
+        </ul>
+      </div>
+      <div>
+        <p class="tone-col-title">What the audience feels watching.</p>
+        <ul class="tone-list yes">
+          <li>These are real people, not a brand account</li>
+          <li>They get what my life actually looks like</li>
+          <li>I trust them before I've even met them</li>
+          <li>I want to share this with someone I know</li>
+          <li>I should probably reach out</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TWO PERSPECTIVES SERIES -->
+<section class="section" id="series">
+  <span class="eyebrow">Flagship Content Series</span>
+  <h2 class="section-title">Two Perspectives.</h2>
+  <div class="divider"></div>
+  <p class="section-body">The most distinctive asset in this content strategy isn't a pillar or a format. It's the dynamic between Nichole and Jalyn themselves.</p>
+  <div class="series-feature">
+    <span class="series-label">The Series</span>
+    <h3 class="series-title">Same question.<br>Two answers.</h3>
+    <p class="series-body">One question. Two takes. The back-and-forth between a seasoned perspective and a fresher one is exactly what makes people watch again. Simple to film, easy to batch, and immediately recognizable as yours.</p>
+    <div class="series-example">
+      <div class="series-voice">
+        <span class="series-voice-name">Nichole</span>
+        <p>"After 20+ years I've watched clients retire early and feel completely lost. The money was never the problem."</p>
+      </div>
+      <div class="series-voice" style="background: var(--navy); ">
+        <span class="series-voice-name" style="color: var(--gold);">Jalyn</span>
+        <p style="color: rgba(255,255,255,0.8);">"What I hear from clients our age is that they don't even know where to start. The complexity feels like a reason to wait."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section class="section" id="system">
+  <span class="eyebrow">The System</span>
+  <h2 class="section-title">Your job is to<br><em>record.</em> Everything<br>else is handled.</h2>
+  <div class="divider"></div>
+  <p class="section-body">The workflow is designed to be as light as possible on their end. The less friction in the recording process, the more consistent the content.</p>
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="step-number">1</div>
+      <div class="step-content">
+        <h3>Monthly Planning Check-In</h3>
+        <p>Align on upcoming themes, calendar moments, and which avatars to lean into. Talking points and prompts are built out before any recording happens so they're never sitting down wondering what to say.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-number">2</div>
+      <div class="step-content">
+        <h3>Record and Send - Weekly</h3>
+        <p>Short clips recorded on your phone and sent over weekly via shared Drive or Dropbox. Talking points are ready in advance so you always know what to say. No overthinking, no big production days required.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-number">3</div>
+      <div class="step-content">
+        <h3>Edit, Caption, Build</h3>
+        <p>Raw clips become polished short-form reels. The same content feeds carousel posts that go deeper on the same idea - one recording, multiple pieces of content.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-number">4</div>
+      <div class="step-content">
+        <h3>Schedule & Manage via Meta Business Suite</h3>
+        <p>Everything queued, scheduled, and posted across Instagram and Facebook. Always working 2-4 weeks ahead so there's never a gap in the calendar.</p>
+      </div>
+    </div>
+    <div class="workflow-step">
+      <div class="step-number">5</div>
+      <div class="step-content">
+        <h3>Monthly Reporting & Quarterly Lookback</h3>
+        <p>Monthly performance snapshot covering reach, engagement, and top-performing content by pillar. Quarterly deep-dive to see what's resonating and where to double down.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CADENCE -->
+<section class="section" id="cadence">
+  <span class="eyebrow">Posting Cadence</span>
+  <h2 class="section-title">Consistent. Intentional.<br><em>Always ahead.</em></h2>
+  <div class="divider"></div>
+  <p class="section-body">2-3 posts per week across Instagram and Facebook. Always working 2-4 weeks ahead so there's never a scramble. Best days and times refined through Meta insights as the audience grows.</p>
+  <div class="cadence-grid">
+    <div class="cadence-card">
+      <span class="cadence-number">2-3</span>
+      <span class="cadence-label">Posts per week</span>
+      <p class="cadence-desc">Consistent, sustainable, and always building.</p>
+    </div>
+    <div class="cadence-card">
+      <span class="cadence-number">Weekly</span>
+      <span class="cadence-label">Content intake</span>
+      <p class="cadence-desc">Short clips sent over regularly keep the pipeline full.</p>
+    </div>
+    <div class="cadence-card">
+      <span class="cadence-number">2-4</span>
+      <span class="cadence-label">Weeks ahead always</span>
+      <p class="cadence-desc">Never scrambling. Content is always in queue.</p>
+    </div>
+    <div class="cadence-card">
+      <span class="cadence-number">2</span>
+      <span class="cadence-label">Platforms managed</span>
+      <p class="cadence-desc">Instagram + Facebook Business Suite. Mirrored and scheduled.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="section" id="deliverables">
+  <span class="eyebrow">What's Included</span>
+  <h2 class="section-title">Everything needed.<br><em>Nothing extra.</em></h2>
+  <div class="divider"></div>
+  <div class="deliverables-grid">
+    <div class="deliverable-group">
+      <h3>Strategy & Planning</h3>
+      <ul class="deliverable-list">
+        <li>Monthly content planning check-in</li>
+        <li>Talking points & prompts ahead of recording</li>
+        <li>Pillar and avatar alignment each month</li>
+        <li>Quarterly performance lookback</li>
+        <li>Creative direction for recording days</li>
+      </ul>
+    </div>
+    <div class="deliverable-group">
+      <h3>Production & Publishing</h3>
+      <ul class="deliverable-list">
+        <li>Short-form reel editing from raw footage</li>
+        <li>Carousel post creation from reel content</li>
+        <li>Caption writing - on-brand, platform-optimized</li>
+        <li>Scheduling via Meta Business Suite</li>
+        <li>Compliance disclaimer integration</li>
+      </ul>
+    </div>
+    <div class="deliverable-group">
+      <h3>Management & Reporting</h3>
+      <ul class="deliverable-list">
+        <li>Instagram + Facebook management</li>
+        <li>Content calendar maintained 2-4 weeks ahead</li>
+        <li>Monthly performance reporting</li>
+        <li>Best day/time optimization</li>
+        <li>Ongoing pillar performance tracking</li>
+      </ul>
+    </div>
+    <div class="deliverable-group">
+      <h3>Available Add-Ons</h3>
+      <ul class="deliverable-list">
+        <li>Onsite content days - San Diego or Phoenix</li>
+        <li>Dedicated shoot day production</li>
+        <li>LinkedIn content adaptation</li>
+        <li>Additional team member content support</li>
+        <li>Expanded posting volume</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS -->
+<div class="dark-band section" id="success">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <span class="eyebrow">Desired Outcomes</span>
+    <h2 class="section-title">What success<br><em>actually</em> looks like.</h2>
+    <div class="divider" style="background: linear-gradient(90deg, var(--blush-dark), var(--gold));"></div>
+    <p class="section-body">This isn't a follower-growth play. It's a trust-building and referral-priming strategy. The metrics tell part of the story. The rest is felt.</p>
+    <div class="success-grid">
+      <div class="success-card">
+        <h3>At 90 Days</h3>
+        <ul class="success-list">
+          <li>A consistent presence - finally, reliably showing up</li>
+          <li>You both feel natural and comfortable on camera</li>
+          <li>Existing clients feel seen and more connected to you</li>
+          <li>Clear early data on what your audience responds to</li>
+          <li>A system that runs without taking over your week</li>
+        </ul>
+      </div>
+      <div class="success-card">
+        <h3>At 6-12 Months</h3>
+        <ul class="success-list">
+          <li>Warm referrals saying "I've been following you"</li>
+          <li>DMs from people who feel like they already know you</li>
+          <li>A content library that compounds over time</li>
+          <li>Clear proof of what works for their specific audience</li>
+          <li>A brand that feels current without losing what makes you, you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT -->
+<section class="section" id="investment">
+  <span class="eyebrow">The Investment</span>
+  <h2 class="section-title">Simple. Structured.<br><em>Built to scale.</em></h2>
+  <div class="divider"></div>
+  <div class="investment-card">
+    <p class="investment-price">$1,500</p>
+    <span class="investment-period">Per Month - Content Partnership Retainer</span>
+    <div class="investment-divider"></div>
+    <p class="investment-note">Strategy, editing, scheduling, reporting, and creative direction - all handled. Your job is to show up and record. Everything else is taken care of.</p>
+    <div class="investment-commitment">3-Month Minimum Engagement</div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <p class="closing-script">Let's build something real.</p>
+  <p class="closing-sub">A presence that reflects who you actually are - and makes the right people feel it.</p>
+  <p class="closing-mark">Financial Balance Today - Content Strategy 2026</p>
+</div>
+
+<script>
+  // Scroll-triggered reveal
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
