@@ -80,23 +80,54 @@
     animation: fadeUp 0.8s ease forwards 0.2s;
   }
 
-  .hero-script {
-    font-family: 'Pinyon Script', cursive;
-    font-size: clamp(64px, 10vw, 120px);
-    color: var(--white);
-    line-height: 1;
-    margin-bottom: 8px;
+  .hero-lockup {
+    position: relative;
+    margin-bottom: 130px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.4s;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .hero-bold-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 0.95;
+  }
+
+  .hero-bold {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(52px, 9vw, 110px);
+    color: var(--white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .hero-cursive {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 108px;
+    color: rgba(232,196,184,0.38);
+    line-height: 1;
+    position: absolute;
+    bottom: -110px;
+    right: -40px;
+    transform: rotate(-18deg);
+    transform-origin: left center;
+    pointer-events: none;
+    font-weight: 400;
+    white-space: nowrap;
   }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 3vw, 28px);
+    font-size: clamp(14px, 2vw, 18px);
     font-weight: 300;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--blush-light);
+    color: rgba(255,255,255,0.4);
     margin-bottom: 48px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.6s;
@@ -857,8 +888,14 @@
 <!-- HERO -->
 <section class="hero">
   <p class="hero-eyebrow">Content Strategy Proposal - 2026</p>
-  <h1 class="hero-script">Financial Balance.</h1>
-  <p class="hero-title">Today - A Content Partnership</p>
+  <h1 class="hero-lockup">
+    <div class="hero-bold-stack">
+      <span class="hero-bold">Financial</span>
+      <span class="hero-bold">Balance.</span>
+    </div>
+    <span class="hero-cursive">today</span>
+  </h1>
+  <p class="hero-title">A Content Partnership</p>
   <div class="hero-divider"></div>
   <p class="hero-subtitle">A content plan built around who you are - and how you show up together.</p>
   <div class="hero-scroll">
