@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FBT Filming Guide - Session 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C2B3A;
+    --blush: #C9967F;
+    --blush-light: #F2DDD6;
+    --gold: #C9A96E;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --gray: #6B6560;
+    --light-gray: #F0EBE5;
+    --border: #E2D9D2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: var(--navy);
+    padding: 40px 24px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* TOP NAV */
+  .top-nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-link {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    transition: all 0.2s;
+  }
+  .nav-link:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .nav-link.active { background: var(--blush); color: var(--white); border-color: var(--blush); }
+
+  /* HEADER */
+  .page-header {
+    margin-bottom: 56px;
+  }
+
+  .page-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--blush-light);
+    display: block;
+  }
+
+  /* SETUP SECTION */
+  .setup-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--navy);
+    padding: 40px;
+    margin-bottom: 56px;
+  }
+
+  .setup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 28px;
+  }
+
+  .setup-block h3 {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 14px;
+  }
+
+  .setup-block ul {
+    list-style: none;
+  }
+
+  .setup-block ul li {
+    font-size: 13px;
+    color: var(--gray);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .setup-block ul li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  .setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--light-gray);
+    gap: 16px;
+  }
+
+  .setting-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .setting-value {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: right;
+  }
+
+  .setup-note {
+    background: var(--light-gray);
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gray);
+    font-style: italic;
+    line-height: 1.6;
+    border-left: 2px solid var(--blush);
+  }
+
+  /* BUCKET HEADER */
+  .bucket-header {
+    margin: 56px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bucket-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--blush-light);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .bucket-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .bucket-info p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 4px;
+  }
+
+  /* VIDEO CARD */
+  .video-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .card-header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .card-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--blush);
+    letter-spacing: 0.1em;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    flex: 1;
+  }
+
+  .format-badge {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    flex-shrink: 0;
+  }
+
+  .badge-duo { background: var(--navy); color: var(--white); }
+  .badge-nichole { background: var(--blush); color: var(--white); }
+  .badge-jalyn { background: var(--gold); color: var(--white); }
+
+  .card-body {
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+  }
+
+  /* CARD LEFT */
+  .card-left {}
+
+  .card-section-title {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .gear-list, .check-list {
+    list-style: none;
+    margin-bottom: 24px;
+  }
+
+  .gear-list li, .check-list li {
+    font-size: 12px;
+    color: var(--gray);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  .gear-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .check-list li::before {
+    content: '☐';
+    font-size: 13px;
+    color: var(--blush);
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  .runtime-tag {
+    display: inline-block;
+    background: var(--light-gray);
+    padding: 4px 10px;
+    font-size: 11px;
+    color: var(--navy);
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+
+  /* CARD RIGHT - SCRIPT */
+  .card-right {}
+
+  .script-block {
+    margin-bottom: 12px;
+  }
+
+  .script-speaker {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 4px;
+  }
+
+  .script-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.65;
+    padding-left: 12px;
+    border-left: 2px solid var(--blush-light);
+  }
+
+  .disclaimer-block {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--light-gray);
+    border-left: 2px solid var(--gold);
+  }
+
+  .disclaimer-block .script-speaker {
+    color: var(--gold);
+  }
+
+  .disclaimer-block .script-line {
+    font-size: 14px;
+    border-left: none;
+    padding-left: 0;
+    color: var(--gray);
+  }
+
+  /* DELIVERY SECTION */
+  .delivery-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--blush);
+    padding: 40px;
+    margin-top: 56px;
+  }
+
+  .folder-structure {
+    background: var(--navy);
+    padding: 24px 28px;
+    margin-top: 20px;
+    font-family: monospace;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 2;
+    border-radius: 2px;
+  }
+
+  .folder-structure .folder {
+    color: var(--gold);
+  }
+
+  .folder-structure .sub {
+    padding-left: 24px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .delivery-note {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-top: 20px;
+  }
+
+  .delivery-note strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .doc-footer p {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .doc-footer a {
+    font-size: 12px;
+    color: var(--blush);
+    text-decoration: none;
+  }
+
+  @media print {
+    .top-nav { display: none; }
+    .video-card { page-break-inside: avoid; }
+    body { padding: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .card-body { grid-template-columns: 1fr; }
+    .setup-grid { grid-template-columns: 1fr; }
+    .card-header { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a href="#setup" class="nav-link">Setup</a>
+  <a href="#bucket1" class="nav-link">Bucket 1 - Exit Planning</a>
+  <a href="#bucket2" class="nav-link">Bucket 2 - High Earners</a>
+  <a href="#bucket3" class="nav-link">Bucket 3 - Financial Planning</a>
+  <a href="#delivery" class="nav-link">Sending Footage</a>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <p class="page-eyebrow">Financial Balance Today - Session 1</p>
+  <h1 class="page-title">Filming Guide</h1>
+  <p class="page-subtitle">June 22, 2026 &nbsp;·&nbsp; 9 Videos &nbsp;·&nbsp; 3 Buckets</p>
+</div>
+
+<!-- SETUP -->
+<div id="setup" class="setup-section">
+  <span class="section-label">Before You Start - Read Once</span>
+  <div class="setup-grid">
+
+    <div class="setup-block">
+      <h3>iPhone 16 Pro Settings</h3>
+      <div class="setting-row"><span class="setting-label">Resolution</span><span class="setting-value">4K at 30fps</span></div>
+      <div class="setting-row"><span class="setting-label">Format</span><span class="setting-value">High Efficiency</span></div>
+      <div class="setting-row"><span class="setting-label">Stabilization</span><span class="setting-value">Standard - ON</span></div>
+      <div class="setting-row"><span class="setting-label">White Balance Lock</span><span class="setting-value">ON</span></div>
+      <div class="setting-row"><span class="setting-label">Orientation</span><span class="setting-value">Portrait - always</span></div>
+      <div class="setup-note">Inside the camera app - tap your face to lock focus and exposure. Hold until you see AE/AF LOCK at the top. Do this before every video.</div>
+    </div>
+
+    <div class="setup-block">
+      <h3>Framing Rules</h3>
+      <ul>
+        <li>Eyes land in the top third of the frame - not centered</li>
+        <li>Small space above your head - about two fingers worth</li>
+        <li>Shoulders and chest in frame - never cut at the neck</li>
+        <li>Solo: sit or stand 3-4 feet from the phone</li>
+        <li>Duo: both of you 4-5 feet back, side by side, equal space</li>
+        <li>Phone at eye level or very slightly above - never below</li>
+      </ul>
+    </div>
+
+    <div class="setup-block">
+      <h3>Audio</h3>
+      <ul>
+        <li>DJI Mic Mini clipped 6-8 inches below your chin</li>
+        <li>Connect receiver to iPhone via USB-C before opening camera</li>
+        <li>Do a 10-second test recording to confirm audio is coming through</li>
+        <li>Close doors, turn off fans or AC - anything that hums</li>
+        <li>Soft rooms sound better than bare hard walls</li>
+      </ul>
+    </div>
+
+    <div class="setup-block">
+      <h3>Lighting</h3>
+      <ul>
+        <li>Ring light directly in front, slightly above eye level</li>
+        <li>If it feels harsh, back it up or move it slightly to the side</li>
+        <li>No bright windows or light sources behind you</li>
+        <li>Soft, even light on your face is the goal</li>
+      </ul>
+      <div class="setup-note">Try at least 2 different backdrops across the 9 videos. Keep it clean - no clutter, no logos, nothing that competes with you.</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- BUCKET 1 -->
+<div id="bucket1">
+  <div class="bucket-header">
+    <div class="bucket-number">01</div>
+    <div class="bucket-info">
+      <h2>Business Exit Planning</h2>
+      <p>Avatar: Mark &amp; Meredith &nbsp;·&nbsp; Pillar: Founder / Entrepreneur</p>
+    </div>
+  </div>
+
+  <!-- VIDEO 1 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 01</div>
+        <div class="card-title">Business Exit Planning</div>
+      </div>
+      <span class="format-badge badge-duo">Duo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on both of you</li>
+          <li>Tripod - both in frame</li>
+          <li>Ring light centered on you both</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Both mics connected and tested</li>
+          <li>Both of you in frame, equal space</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">One of the biggest myths in business ownership is that when you're ready to leave, you just... leave. Most owners we sit down with have built something incredible - but they've also built themselves into every corner of it.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">And that's the part nobody talks about early enough. If the business can't run without you, it's not really sellable yet. That's not a criticism - it's just the reality most people find out too late.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">Exit planning isn't something you do when you're ready to go. It's something you build toward - sometimes 5, 10 years out.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Both - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 2 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 02</div>
+        <div class="card-title">Business Exit Planning</div>
+      </div>
+      <span class="format-badge badge-nichole">Nichole Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Nichole</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Nichole</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Single frame, clean backdrop</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">I've sat across from business owners who've spent 30 years building something they love - and when it's time to think about stepping back, they realize the business and their retirement are the same thing. No separation. No plan B.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">The earlier you start thinking about what exit actually looks like, the more options you have. More time means more leverage - over the sale price, the terms, the timeline, and your own peace of mind.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">If you're a business owner and you haven't had this conversation yet, that's exactly where we start.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Nichole - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 3 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 03</div>
+        <div class="card-title">Business Exit Planning</div>
+      </div>
+      <span class="format-badge badge-jalyn">Jalyn Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Jalyn</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Jalyn</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Different backdrop from Video 02</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">30-45 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">Something I think about a lot with business owner clients is identity. What happens to Mark when the business isn't there anymore?</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">A lot of owners pour everything into what they've built. Their schedule, their relationships, their sense of purpose. And exit planning has to account for that too - not just the financial side.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">The goal is to build a life that's ready for what's next. Not just a business that's ready to sell.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Jalyn - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- BUCKET 2 -->
+<div id="bucket2">
+  <div class="bucket-header">
+    <div class="bucket-number">02</div>
+    <div class="bucket-info">
+      <h2>Habits of High Earners</h2>
+      <p>Avatar: Jenny &amp; John &nbsp;·&nbsp; Pillar: Personal / Life in Balance</p>
+    </div>
+  </div>
+
+  <!-- VIDEO 4 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 04</div>
+        <div class="card-title">Habits of High Earners</div>
+      </div>
+      <span class="format-badge badge-duo">Duo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on both of you</li>
+          <li>Tripod - both in frame</li>
+          <li>Ring light centered on you both</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Both mics connected and tested</li>
+          <li>Both of you in frame, equal space</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">Something I see consistently with high earners who actually build wealth over time - they pay themselves first. Before the bills, before the lifestyle spend, before everything else.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">And they're thinking about taxes - not just this year's bill, but what it looks like 10, 15 years from now. That's a completely different conversation than most people are having.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">The income is there. The question is whether the habits around it are working as hard as you are.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Both - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 5 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 05</div>
+        <div class="card-title">Habits of High Earners</div>
+      </div>
+      <span class="format-badge badge-nichole">Nichole Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Nichole</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Nichole</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Single frame, clean backdrop</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">High earners aren't necessarily wealthy people. I've seen people making $800,000 a year with nothing to show for it at 55. And I've seen people making $150,000 who are completely set.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">The difference almost always comes down to a few habits. Paying yourself first. A real tax strategy - not just for this year but for where you're headed. And protecting the income that's making all of it possible.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">Earning a lot isn't the same as keeping a lot. That's the conversation most people aren't having until it's late.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Nichole - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 6 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 06</div>
+        <div class="card-title">Habits of High Earners</div>
+      </div>
+      <span class="format-badge badge-jalyn">Jalyn Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Jalyn</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Jalyn</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Different backdrop if possible</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">30-45 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">One thing that comes up a lot with clients who are early in their high-earning years - this idea that they'll figure out the planning stuff later, once things settle down.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">But things don't really settle down. And the habits you build now are the ones that compound - in both directions.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">Pay yourself first. Build a tax strategy that looks forward. And protect your income - it's your biggest asset right now.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Jalyn - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- BUCKET 3 -->
+<div id="bucket3">
+  <div class="bucket-header">
+    <div class="bucket-number">03</div>
+    <div class="bucket-info">
+      <h2>What is Financial Planning</h2>
+      <p>Avatar: Both &nbsp;·&nbsp; Pillar: WestPac / Credibility</p>
+    </div>
+  </div>
+
+  <!-- VIDEO 7 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 07</div>
+        <div class="card-title">What is Financial Planning</div>
+      </div>
+      <span class="format-badge badge-duo">Duo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on both of you</li>
+          <li>Tripod - both in frame</li>
+          <li>Ring light centered on you both</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Both mics connected and tested</li>
+          <li>Both of you in frame, equal space</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>This one can feel warm and casual - welcoming people in</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">Financial planning gets thrown around a lot - but what it really means is coordination. Looking at everything together: your income, your taxes, your investments, your goals - and making sure they're all working in the same direction.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">And it's not something that only makes sense once you hit a certain number. The decisions you make early have a huge impact on what's possible later.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">It's never too early to start. And it's never too late to take control.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Both - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 8 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 08</div>
+        <div class="card-title">What is Financial Planning</div>
+      </div>
+      <span class="format-badge badge-nichole">Nichole Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Nichole</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Nichole</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Professional backdrop - this one carries credibility</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">45-60 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">A lot of people think financial planning is about picking investments. It's really not. It's about coordination.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">Are your decisions working together? Is your tax strategy aligned with your investment strategy? Is your protection in place for the income you've built? Are you building toward something specific - or just hoping it works out?</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Nichole</div>
+          <div class="script-line">That global view - looking at everything at once - is what separates people who accumulate wealth from people who just accumulate accounts.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Nichole - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 9 -->
+  <div class="video-card">
+    <div class="card-header">
+      <div>
+        <div class="card-num">Video 09</div>
+        <div class="card-title">What is Financial Planning</div>
+      </div>
+      <span class="format-badge badge-jalyn">Jalyn Solo</span>
+    </div>
+    <div class="card-body">
+      <div class="card-left">
+        <span class="card-section-title">Gear for this shot</span>
+        <ul class="gear-list">
+          <li>Mic Mini on Jalyn</li>
+          <li>Tripod - single frame</li>
+          <li>Ring light on Jalyn</li>
+        </ul>
+        <span class="card-section-title">Before you hit record</span>
+        <ul class="check-list">
+          <li>Mic connected and tested</li>
+          <li>Warm approachable backdrop - this one should feel accessible</li>
+          <li>Eyes in top third of frame</li>
+          <li>Room is quiet</li>
+          <li>Focus locked on face</li>
+        </ul>
+        <span class="runtime-tag">30-45 seconds</span>
+      </div>
+      <div class="card-right">
+        <span class="card-section-title">Script</span>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">Financial planning sounds intimidating to a lot of people - like it's something you do when you're older, or when you have more figured out.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">But what it actually is, is making sure your decisions are connected. That what you're doing today makes sense for where you want to be in 10, 20 years.</div>
+        </div>
+        <div class="script-block">
+          <div class="script-speaker">Jalyn</div>
+          <div class="script-line">You don't need to have everything figured out to start. You just need someone to help you see the full picture.</div>
+        </div>
+        <div class="disclaimer-block">
+          <div class="script-speaker">Jalyn - to close</div>
+          <div class="script-line">This is just our opinion - reach out for personalized advice.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DELIVERY -->
+<div id="delivery" class="delivery-section">
+  <span class="section-label">Sending Footage</span>
+  <p style="font-size:14px; color:var(--gray); line-height:1.7; margin-bottom:20px;">Once you're done filming, upload everything to the shared Dropbox folder. Send full resolution exactly as it came off your phone - no need to trim, compress, or rename anything.</p>
+
+  <div class="folder-structure">
+    <div class="folder">📁 FBT Session 1 - June 22</div>
+    <div class="sub">📁 Video 01 - Business Exit Duo</div>
+    <div class="sub">📁 Video 02 - Business Exit Nichole</div>
+    <div class="sub">📁 Video 03 - Business Exit Jalyn</div>
+    <div class="sub">📁 Video 04 - High Earners Duo</div>
+    <div class="sub">📁 Video 05 - High Earners Nichole</div>
+    <div class="sub">📁 Video 06 - High Earners Jalyn</div>
+    <div class="sub">📁 Video 07 - Financial Planning Duo</div>
+    <div class="sub">📁 Video 08 - Financial Planning Nichole</div>
+    <div class="sub">📁 Video 09 - Financial Planning Jalyn</div>
+  </div>
+
+  <p class="delivery-note">One folder for the session, one sub-folder per video. Drop your iPhone files in as-is. <strong>Target: footage uploaded by end of day June 22nd.</strong> That keeps us on track for the July 1st launch.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <p>Financial Balance Today &nbsp;·&nbsp; Session 1 &nbsp;·&nbsp; June 22, 2026</p>
+  <a href="mailto:marcus.synegal@gmail.com">Questions? marcus.synegal@gmail.com</a>
+</div>
+
+</body>
+</html>
